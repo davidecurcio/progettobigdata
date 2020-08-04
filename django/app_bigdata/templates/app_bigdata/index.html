@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prova</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "app_bigdata/style.css" %}">
+</head>
+<body>
+    {% if form %}
+        <div class="container">
+            <form id="contact" action="/" method="post">
+                <h3>Progetto Big Data</h3>
+                {% csrf_token %}
+                {{ form }}
+            <input type="submit" value="Submit">
+        </div> 
+    {% endif %}
+
+    {% if result %}
+        <div class="container">
+            <div id="contact2">
+                <h3>Results</h3>
+                {% for row in result %}
+                    <h4>{{ row }}</h4>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+</form>
+</body>
+</html>
